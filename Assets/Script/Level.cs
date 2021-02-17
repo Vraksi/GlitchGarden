@@ -18,10 +18,20 @@ public class Level : MonoBehaviour
         StartCoroutine(StartSceneWithLoad());
     }
 
+    public void LoadGameOver()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
+
+    public void ExitGame()
+    {
+        ExitGame();
+    }
+
     public IEnumerator StartSceneWithLoad()
     {
         yield return new WaitForSeconds(timeBeforeLoad);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     
 }
