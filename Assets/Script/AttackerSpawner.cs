@@ -8,19 +8,24 @@ public class AttackerSpawner : MonoBehaviour
     [SerializeField] float minTimeBetweenSpawns = 1f;
     [SerializeField] float maxTimeBetweenSpawns = 5f;
     [SerializeField] Attacker[] attackerPrefab;
-    
 
-    // Start is called before the first frame update
-
+ 
 
     IEnumerator Start()
     {
         while(spawn)
-        {
-            
+        {           
             yield return new WaitForSeconds(Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns));
-            SpawnAttacker();
+            if (spawn)
+            {
+                SpawnAttacker();
+            }           
         }
+    }
+
+    public void SetSpawn(bool spawning)
+    {
+        spawn = spawning;
     }
 
     private void SpawnAttacker()

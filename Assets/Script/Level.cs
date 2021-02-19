@@ -23,6 +23,11 @@ public class Level : MonoBehaviour
         SceneManager.LoadScene("Game Over");
     }
 
+    public void LoadNextScene()
+    {        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void ExitGame()
     {
         ExitGame();

@@ -12,6 +12,13 @@ public class Attacker : MonoBehaviour
 
     GameObject currentTarget;
     Animator anim;
+    LevelController levelController;
+
+    private void Start()
+    {
+        levelController = FindObjectOfType<LevelController>();
+        levelController.AddAttacker();
+    }
 
     void Update()
     {
@@ -72,6 +79,7 @@ public class Attacker : MonoBehaviour
     {
         Destroy(gameObject);
         GameObject deathExplosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        levelController.RemoveAttacker();
         Destroy(deathExplosion, deathVFXDuration);
     }
 }
